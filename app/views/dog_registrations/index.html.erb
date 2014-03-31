@@ -1,0 +1,11 @@
+<h1>Dogs and Their Owners</h1>
+<%= notice  %>
+<ul><% @dog_registrations.each do |dog| %>
+  <li>Owner: <%= dog.first_name %> <%= dog.last_name %></li>
+  <li>Email: <%= dog.email %></li>
+  <li>Dog: <%= dog.dog_name %></li>
+  <p></p>
+<% end %>
+</ul>
+
+<p><%= link_to 'Make A New Entry', '/dog_registrations/new' %></p>
