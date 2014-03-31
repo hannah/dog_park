@@ -29,6 +29,18 @@ feature 'add a dog', %Q{
     expect(DogRegistration.count).to eql(prev_count + 1)
   end
 
-  # scenario 'create an invalid dog registration'
+  scenario 'create an invalid dog registration' do
+    visit new_dog_registration_path
+    fill_in 'First name',
+      with: ''
+    fill_in 'Last name',
+      with: ''
+    fill_in 'Email',
+      with: ''
+    fill_in 'Dog name',
+      with: ''
+    click_button 'Create Dog Registration'
+    expect(page).to have_content('Registration Not Saved')
+  end
 
 end
